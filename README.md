@@ -1,59 +1,56 @@
-# Projeto 1 — API de Gestão de Clientes (Backend + Front-end)
+# Sistema Full Stack de Gestão de Clientes
 
-Sistema completo com **API REST** + **Front-end Web** (sem precisar instalar Node).
-O front consome a API via `fetch`, faz login, cria/lista/edita/deleta clientes.
+Aplicação full stack para gerenciamento de clientes desenvolvida utilizando Flask no backend e interface web construída com HTML, CSS e JavaScript puro no frontend. O sistema permite registro de usuários, autenticação com JWT e operações completas de CRUD de clientes através de uma API REST integrada à interface.
 
-## ✅ Stack
-- Python 3.10+
-- Flask
-- Flask-SQLAlchemy
-- JWT (Flask-JWT-Extended)
-- SQLite (padrão) — opcional MySQL via `DATABASE_URL`
-- Front-end: HTML + JS (vanilla) servido pelo próprio Flask
+O objetivo do projeto é demonstrar a construção completa de uma aplicação web, incluindo backend, autenticação, banco de dados e consumo da API pelo frontend.
 
-## 📌 Funcionalidades
-### Autenticação
-- `POST /auth/registrar`
-- `POST /auth/login`
+## Tecnologias utilizadas
 
-### Clientes (JWT obrigatório)
-- `POST /clientes`
-- `GET /clientes`
-- `GET /clientes/<id>`
-- `PUT /clientes/<id>`
-- `DELETE /clientes/<id>`
+Python 3, Flask, Flask-SQLAlchemy, Flask-JWT-Extended, SQLite, HTML, CSS e JavaScript (Vanilla JS).
 
-### Front-end (Web)
-- `GET /` abre a tela
-- Login
-- Lista clientes
-- Criar cliente
-- Editar cliente
-- Excluir cliente
+## Estrutura e funcionamento
 
-## ▶️ Como rodar (Windows / Linux / Mac)
-```bash
-cd "Projeto_1_API_Gestao_Clientes_Fullstack"
+A aplicação é organizada da seguinte forma:
+
+- **app.py**: ponto de entrada da aplicação. Responsável por criar a instância do Flask, configurar o banco de dados, inicializar o JWT e registrar as rotas da API.
+- **modelos.py**: define os modelos do banco de dados utilizando SQLAlchemy, incluindo usuários e clientes.
+- **rotas/auth.py**: contém as rotas de registro e login, responsáveis pela autenticação e geração do token JWT.
+- **rotas/clientes.py**: implementa o CRUD completo de clientes, protegido por autenticação.
+- **web/index.html**: interface principal da aplicação exibida no navegador.
+- **web/static/app.js**: responsável por realizar as requisições HTTP para a API, gerenciar o token JWT e atualizar os dados na tela.
+- **web/static/estilos.css**: define o layout e aparência da interface.
+- **instance/**: diretório utilizado pelo Flask para armazenar arquivos locais, como o banco SQLite.
+
+## Funcionamento geral
+
+O usuário realiza o registro informando email e senha. Após o login, a API retorna um token JWT que é utilizado pelo frontend nas requisições seguintes. As rotas de clientes exigem esse token para permitir acesso, garantindo autenticação nas operações.
+
+Rotas principais da API:
+
+POST /auth/registrar  
+POST /auth/login  
+GET /clientes  
+POST /clientes  
+PUT /clientes/<id>  
+DELETE /clientes/<id>  
+
+## Como executar o projeto
+
+1. Criar ambiente virtual:
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/Mac: source .venv/bin/activate
+
+2. Ativar o ambiente (Windows):
+.venv\Scripts\Activate.ps1
+
+3. Instalar dependências:
 pip install -r requirements.txt
-python -m flask --app app run --debug
-```
-Abra no navegador:
-- http://127.0.0.1:5000
 
-## 🔐 Usuário de teste
-Você pode registrar na tela (Front-end) ou por cURL:
+4. Executar a aplicação:
+python app.py
 
-Registrar:
-```bash
-curl -X POST http://127.0.0.1:5000/auth/registrar -H "Content-Type: application/json" -d "{"email":"admin@teste.com","senha":"123456"}"
-```
-Login:
-```bash
-curl -X POST http://127.0.0.1:5000/auth/login -H "Content-Type: application/json" -d "{"email":"admin@teste.com","senha":"123456"}"
-```
+Acesse no navegador:
+http://127.0.0.1:5000
 
-## ⚙️ Variáveis de ambiente
-Copie `.env.example` para `.env` (opcional).
+## Objetivo
+
+Projeto desenvolvido para demonstrar conhecimentos full stack, incluindo desenvolvimento backend com Flask, autenticação JWT, manipulação de banco de dados e integração completa entre frontend e API.
