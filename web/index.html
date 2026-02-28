@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão de Clientes</title>
+  <link rel="stylesheet" href="/static/estilos.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Gestão de Clientes</h1>
+        <p class="sub">Front-end simples para testar a API (JWT + CRUD).</p>
+      </div>
+      <div class="acoes-topo">
+        <button id="btnSair" class="btn secundario" style="display:none;">Sair</button>
+      </div>
+    </header>
+
+    <section class="card" id="cardLogin">
+      <h2>Login</h2>
+      <div class="grid2">
+        <div>
+          <label>Email</label>
+          <input id="loginEmail" placeholder="seu@email.com" />
+        </div>
+        <div>
+          <label>Senha</label>
+          <input id="loginSenha" type="password" placeholder="******" />
+        </div>
+      </div>
+      <div class="linha">
+        <button id="btnLogin" class="btn">Entrar</button>
+        <button id="btnRegistrar" class="btn secundario">Registrar</button>
+        <span class="hint">Senha mínima: 6 caracteres</span>
+      </div>
+      <div id="erroLogin" class="erro" style="display:none;"></div>
+    </section>
+
+    <section class="card" id="cardClientes" style="display:none;">
+      <div class="linha entre">
+        <h2>Clientes</h2>
+        <button id="btnRecarregar" class="btn secundario">Recarregar</button>
+      </div>
+
+      <div class="card interno">
+        <h3>Novo / Editar cliente</h3>
+        <div class="grid3">
+          <div>
+            <label>Nome *</label>
+            <input id="cliNome" placeholder="Ex.: Maria Silva" />
+          </div>
+          <div>
+            <label>Email</label>
+            <input id="cliEmail" placeholder="maria@exemplo.com" />
+          </div>
+          <div>
+            <label>Telefone</label>
+            <input id="cliTelefone" placeholder="(11) 99999-0000" />
+          </div>
+        </div>
+        <div class="linha">
+          <button id="btnSalvar" class="btn">Salvar</button>
+          <button id="btnLimpar" class="btn secundario">Limpar</button>
+          <span id="modoEdicao" class="tag" style="display:none;"></span>
+        </div>
+        <div id="erroCliente" class="erro" style="display:none;"></div>
+        <div id="okCliente" class="ok" style="display:none;"></div>
+      </div>
+
+      <div class="card interno">
+        <h3>Lista</h3>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th style="width:160px;">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyClientes"></tbody>
+          </table>
+        </div>
+        <div class="muted" id="vazio" style="display:none;">Nenhum cliente cadastrado.</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>API: <code>/auth</code> e <code>/clientes</code> • Status: <a href="/api" target="_blank">/api</a></small>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
