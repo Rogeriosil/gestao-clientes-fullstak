@@ -1,43 +1,236 @@
-:root{
-  --bg:#0b1220;
-  --card:#101a2e;
-  --muted:#8aa0c7;
-  --text:#e8efff;
-  --border:#223155;
-  --btn:#2f6bff;
-  --btn2:#223155;
-  --ok:#0f2d1b;
-  --okb:#1a7f3a;
-  --err:#2d1212;
-  --errb:#d24b4b;
+/* =====================================================
+   ROOT / VARIÁVEIS
+===================================================== */
+:root {
+  --bg: #0b1220;
+  --card: #101a2e;
+  --muted: #8aa0c7;
+  --text: #e8efff;
+  --border: #223155;
+
+  --btn: #2f6bff;
+  --btn2: #223155;
+
+  --ok: #0f2d1b;
+  --okb: #1a7f3a;
+
+  --err: #2d1212;
+  --errb: #d24b4b;
 }
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(135deg,#070b14,#0b1220);color:var(--text);font-family:system-ui,Segoe UI,Arial}
-.container{max-width:1100px;margin:28px auto;padding:0 14px}
-.header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
-h1{margin:0;font-size:28px}
-.sub{margin:6px 0 0;color:var(--muted)}
-.card{background:rgba(16,26,46,.9);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:12px}
-.card.interno{background:rgba(10,16,32,.45)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid3{display:grid;grid-template-columns:1.2fr 1fr 0.8fr;gap:10px}
-label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
-input{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--border);background:#0a1020;color:var(--text);outline:none}
-input:focus{border-color:#3d74ff}
-.linha{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
-.entre{justify-content:space-between}
-.btn{border:0;background:var(--btn);color:white;padding:10px 12px;border-radius:12px;cursor:pointer;font-weight:600}
-.btn.secundario{background:var(--btn2)}
-.btn:hover{filter:brightness(1.05)}
-.hint{color:var(--muted);font-size:13px}
-.erro{background:var(--err);border:1px solid var(--errb);padding:10px 12px;border-radius:12px;margin-top:10px}
-.ok{background:var(--ok);border:1px solid var(--okb);padding:10px 12px;border-radius:12px;margin-top:10px}
-.tabela-wrap{overflow:auto;border-radius:12px;border:1px solid var(--border)}
-.tabela{width:100%;border-collapse:collapse;min-width:760px;background:#0a1020}
-.tabela th,.tabela td{padding:10px 12px;border-bottom:1px solid #18264a;text-align:left}
-.tabela th{color:var(--muted);font-weight:600}
-.acoes{display:flex;gap:8px}
-.tag{background:#12234a;border:1px solid #2f4b9a;color:#bcd0ff;padding:6px 10px;border-radius:999px;font-size:12px}
-.muted{color:var(--muted);margin-top:10px}
-.footer{margin-top:16px;color:var(--muted)}
-code{color:#bcd0ff}
+
+/* =====================================================
+   RESET / BASE
+===================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #070b14, #0b1220);
+  color: var(--text);
+  font-family: system-ui, Segoe UI, Arial;
+}
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+.container {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 0 14px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.linha {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.entre {
+  justify-content: space-between;
+}
+
+/* =====================================================
+   TIPOGRAFIA
+===================================================== */
+h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+label {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.muted {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+code {
+  color: #bcd0ff;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+  background: rgba(16, 26, 46, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.card.interno {
+  background: rgba(10, 16, 32, 0.45);
+}
+
+/* =====================================================
+   GRID SYSTEM
+===================================================== */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.8fr;
+  gap: 10px;
+}
+
+/* =====================================================
+   FORMULÁRIOS
+===================================================== */
+input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0a1020;
+  color: var(--text);
+  outline: none;
+}
+
+input:focus {
+  border-color: #3d74ff;
+}
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+.btn {
+  border: 0;
+  background: var(--btn);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.secundario {
+  background: var(--btn2);
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+/* =====================================================
+   ALERTAS / STATUS
+===================================================== */
+.erro {
+  background: var(--err);
+  border: 1px solid var(--errb);
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.ok {
+  background: var(--ok);
+  border: 1px solid var(--okb);
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+/* =====================================================
+   TABELA
+===================================================== */
+.tabela-wrap {
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: #0a1020;
+}
+
+.tabela th,
+.tabela td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #18264a;
+  text-align: left;
+}
+
+.tabela th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* =====================================================
+   COMPONENTES
+===================================================== */
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background: #12234a;
+  border: 1px solid #2f4b9a;
+  color: #bcd0ff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+.footer {
+  margin-top: 16px;
+  color: var(--muted);
+}
